@@ -48,7 +48,7 @@ class LabeledLineSentence(object):
 sources = {"sent_tweets.txt": "SENT"}
 sentences = LabeledLineSentence(sources)
 
-model = Doc2Vec(min_count=1, window=15, size=100, sample=1e-4, negative=5, workers=8)
+model = Doc2Vec(min_count=1, window=15, size=250, sample=1e-4, negative=5, workers=8)
 
 model.build_vocab(sentences.to_array())
 
