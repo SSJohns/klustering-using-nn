@@ -1,5 +1,5 @@
 import json
-
+# parse the tweets 
 out = []
 
 with open("Tweets.txt") as f:
