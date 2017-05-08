@@ -57,7 +57,7 @@ sources = {"~/Desktop/tweet_dataset.txt": "SENT"}# , "../data/wonderland.txt": "
 sentences = LabeledLineSentence(sources)
 
 model = Doc2Vec(min_count=1, window=7, size=100, sample=1e-4, negative=5, workers=8)
-
+#
 model.build_vocab(sentences.to_array())
 
 for epoch in range(10):
@@ -66,7 +66,7 @@ for epoch in range(10):
     # model.alpha -= 0.002  # decrease the learning rate
     # model.min_alpha = model.alpha  # fix the learning rate, no decay
 
-model.save('../data/imdb.d2v')
+model.load('../data/imdb.d2v')
 
 import pprint
 pp = pprint.PrettyPrinter(indent=4)
@@ -102,53 +102,6 @@ for i, v in results.items():
     print i, v
     print '\n'
 
-dist_to_cent_1 = []
-for i in range(len(X)):
-        dist_to_cent_1.append(numpy.linalg.norm(X[i]-kmeans.cluster_centers_[0]))
-
-#import ipdb; ipdb.set_trace()
-index = dist_to_cent_1.index(min(dist_to_cent_1))
-
-print docs[index], index
-
-# 2
-dist_to_cent_1 = []
-for i in range(len(X)):
-        dist_to_cent_1.append(numpy.linalg.norm(X[i]-kmeans.cluster_centers_[1]))
-
-#import ipdb; ipdb.set_trace()
-index = dist_to_cent_1.index(min(dist_to_cent_1))
-
-print docs[index], index
-
-# 3
-dist_to_cent_1 = []
-for i in range(len(X)):
-        dist_to_cent_1.append(numpy.linalg.norm(X[i]-kmeans.cluster_centers_[2]))
-
-#import ipdb; ipdb.set_trace()
-index = dist_to_cent_1.index(min(dist_to_cent_1))
-
-print docs[index], index
-
-# 4
-dist_to_cent_1 = []
-for i in range(len(X)):
-        dist_to_cent_1.append(numpy.linalg.norm(X[i]-kmeans.cluster_centers_[3]))
-
-# import ipdb; ipdb.set_trace()
-index = dist_to_cent_1.index(min(dist_to_cent_1))
-
-print docs[index], index
-
-# 5
-dist_to_cent_1 = []
-for i in range(len(X)):
-        dist_to_cent_1.append(numpy.linalg.norm(X[i]-kmeans.cluster_centers_[4]))
-
-#import ipdb; ipdb.set_trace()
-index = dist_to_cent_1.index(min(dist_to_cent_1))
-
-print docs[index], index
-
 import ipdb; ipdb.set_trace()
+# plt.rcParams["figure.figsize"] = (30,30)
+# plt.show()
